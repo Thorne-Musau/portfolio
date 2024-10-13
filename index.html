@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorne Musau Portfolio</title>
+    <link rel="icon" type="image/jpg" href="profile.jpg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --accent-color: #4daa57;
+            --background-color: #f4f7f9;
+            --text-color: #333333;
+            --light-text-color: #6c757d;
+            --card-background: #ffffff;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-top:0;
+            margin-bottom:.5rem;
+            font-weight:500;
+            line-height:1.2;
+            color: var(--primary-color);
+        }
+        h1 {
+            font-size:calc(1.375rem + 1.5vw)
+        }
+        .section-title {
+            font-size: 2.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .timeline {
+            border-left: 2px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        .timeline-item::before {
+            background-color: var(--secondary-color);
+        }
+        .social-icon {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+        .social-icon:hover {
+            color: var(--accent-color);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: #ffffff;
+        }
+        .tool-icon {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        .skill-item {
+            transition: opacity 0.3s ease;
+            font-size: 1.1rem;
+        }
+        .project-description {
+            display: none;
+        }
+        .social-icon {
+            font-size: 1.8rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+        [data-bs-theme="dark"] .social-icon {
+            color: #ffffff;
+        }
+        [data-bs-theme="dark"] .social-icon:hover {
+            color: #27313b;
+        }
+        .btn {
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .hero-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .nav-link {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .display-4 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+        .lead {
+            font-size: 1.3rem;
+        }
+        p {
+            font-size: 1.1rem;
+        }
+        .card {
+            background-color: var(--card-background);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .navbar {
+            background-color: var(--card-background) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: var(--text-color);
+        }
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+        }
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+        .text-secondary {
+            color: var(--secondary-color) !important;
+        }
+        .text-accent {
+            color: var(--accent-color) !important;
+        }
+        .bg-dark {
+            background-color: #2c3e50 !important;
+        }
+        .text-white {
+            color: #ffffff !important;
+        }
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .skill-item {
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+        /* Mobile-friendly adjustments */
+        @media (max-width: 768px) {
+            .hero-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .display-4 {
+                font-size: 2.5rem;
+            }
+
+            .lead {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                padding-left: 15px;
+                margin-left: 5px;
+            }
+
+            .social-icon {
+                font-size: 1.5rem;
+                margin-right: 10px;
+            }
+
+            .tool-icon {
+                font-size: 2rem;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .profile-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .card {
+                margin-bottom: 20px;
+            }
+
+            #skills-container .col-md-6 {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Ensure proper spacing on smaller screens */
+        @media (max-width: 576px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .skill-item {
+                font-size: 0.8rem;
+            }
+
+            #contact .social-icon {
+                font-size: 1.8rem;
+                margin-right: 15px;
+            }
+        }
+
+        /* Improve readability on very small screens */
+        @media (max-width: 320px) {
+            body {
+                font-size: 14px;
+            }
+
+            .hero-img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .display-4 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="profile.jpg" alt="Thorne Musau" class="profile-img">
+                Thorne Musau
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <!-- <button id="dark-mode-toggle" class="btn btn-outline-primary ms-2">
+                    <i class="fas fa-moon"></i> Dark
+                </button> -->
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white text-center py-5" data-aos="fade-down">
+        <div class="container">
+            <img src="profile.jpg" alt="Thorne Musau" class="hero-img mb-4">
+            <h1 class="display-4 mb-3 text-white">Thorne Musau</h1>
+            <p class="lead mb-4 text-white"><span id="typed-text"></span></p>
+            <div class="contact-info">
+                <p class="mb-2"><i class="fas fa-envelope me-2"></i> thornemusau@gmail.com</p>
+                <p class="mb-2"><i class="fas fa-phone me-2"></i> 0758871161</p>
+                <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i> Nairobi, Kenya</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mt-5">
+        <section id="about" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">About Me</h2>
+            <p>A future-driven and methodical individual with data entry experience and a knack for solving problems in data hackathons, seeking a role in data science and data analysis. Passionate about leveraging data for innovation, I aim to use my technical skills to contribute to research and support company goals.</p>
+        </section>
+
+        <section id="social-tools" class="mb-5" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Connect with me</h4>
+                    <a href="https://github.com/Thorne-Musau" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/thorne-musau/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/mvs4v/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-md-6">
+                    <h4>Tools & Languages</h4>
+                    <i class="fab fa-python tool-icon" title="Python"></i>
+                    <i class="fas fa-database tool-icon" title="SQL"></i>
+                    <i class="fas fa-brain tool-icon" title="Scikit-learn"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Multimedia University of Kenya</h4>
+                    <p>Bachelor of Science Software Engineering</p>
+                    <p>GPA: 3.7 | Sep 2021 - Aug 2024</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Kabianga School</h4>
+                    <p>Highschool Certificate</p>
+                    <p>GPA: 3.8 | Jan 2017 - Apr 2021</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Data Science Intern - SaFra, Nairobi</h4>
+                    <p>May 2024 - Aug 2024</p>
+                    <ul>
+                        <li>Conducted a comprehensive project analyzing the prevalence of different types of medical insurances in Kenya.</li>
+                        <li>Developed and implemented machine learning models to identify trends and patterns in medical insurance data.</li>
+                        <li>Utilized various data analysis and visualization tools to present findings and support decision-making processes.</li>
+                        <li>Prepared detailed reports and presentations for stakeholders, highlighting key insights and recommendations.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h4>Compliance and Data Analyst - Aubrey Group Limited</h4>
+                    <p>Sep 2022 - Apr 2024</p>
+                    <ul>
+                        <li>Analyzed and interpreted complex data to support compliance activities.</li>
+                        <li>Prepared detailed reports to communicate findings and recommendations to senior management.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h4>ICT Intern - University of Nairobi</h4>
+                    <p>Apr 2023 - Aug 2023</p>
+                    <ul>
+                        <li>Worked as a Network Administrator and End-user support.</li>
+                        <li>Provided technical assistance to staff on both software and hardware related issues.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">Projects</h2>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">Medical Insurance Cover Prediction</h4>
+                    <p class="card-text">Apr 2024 - Aug 2024</p>
+                    <p>The project aims at predicting the likelihood that someone has purchased or is in possession of a Medical insurance cover based on various Demographic and Social-political factors.</p>
+                    <button class="btn btn-primary btn-sm mt-2 toggle-description" onclick="toggleDescription()" id="myBtn">Read More</button>
+                    <div class="project-description mt-3" style="display: none;">
+                        <p>The prediction is based on the identification of key features that mainly contribute significantly to the assessment of one being in possession of a Medical Insurance cover. This project involved:</p>
+                        <ul>
+                            <li>Data collection and preprocessing of demographic and social-political data</li>
+                            <li>Feature engineering and selection to identify the most relevant factors</li>
+                            <li>Development and comparison of multiple machine learning models</li>
+                            <li>Model evaluation and fine-tuning for optimal performance</li>
+                            <li>Creation of a user-friendly interface for inputting data and receiving predictions</li>
+                        </ul>
+                        <p>The final model achieved an accuracy of 85% in predicting medical insurance cover possession, providing valuable insights for insurance companies and policymakers.</p>
+                        <a href="https://github.com/Thorne-Musau/SaFra-Healthcare" target="_blank">
+                            <button class="btn btn-primary btn-sm mt-2">View on GitHub</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="mb-4">
+                <input type="text" id="skill-filter" class="form-control form-control-lg" placeholder="Search skills...">
+            </div>
+            <div class="row g-4" id="skills-container">
+                <div class="col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Technical Skills</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="skill-item badge bg-primary">Python</span>
+                                <span class="skill-item badge bg-primary">Jupyter Notebook</span>
+                                <span class="skill-item badge bg-primary">Pandas</span>
+                                <span class="skill-item badge bg-primary">Scikit-learn</span>
+                                <span class="skill-item badge bg-primary">Tensorflow</span>
+                                <span class="skill-item badge bg-primary">SQL</span>
+                                <span class="skill-item badge bg-primary">Apache Spark</span>
+                                <span class="skill-item badge bg-primary">Hadoop</span>
+                                <span class="skill-item badge bg-primary">Microsoft Azure</span>
+                                <span class="skill-item badge bg-primary">Excel</span>
+                                <span class="skill-item badge bg-primary">Power BI</span>
+                                <span class="skill-item badge bg-primary">Statistical Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Areas of Interest</h4>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="skill-item badge bg-secondary">Data Science</span>
+                                <span class="skill-item badge bg-secondary">Machine Learning</span>
+                                <span class="skill-item badge bg-secondary">Data Visualization</span>
+                                <span class="skill-item badge bg-secondary">Problem Solving</span>
+                                <span class="skill-item badge bg-secondary">Research and Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-5" data-aos="fade-up">
+            <h2 class="section-title">Reach Out</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4>Contact Information</h4>
+                    <img src="profile.jpg" alt="Thorne Musau" class="img-fluid rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
+                    <p><strong>Name:</strong> Thorne Musau</p>
+                    <p><strong>School:</strong> Multimedia University of Kenya</p>
+                    <p><strong>Email:</strong> thornemusau@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://github.com/Thorne-Musau" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/thorne-musau/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/mvs4v/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Send a Message</h4>
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Thorne Musau. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="btn btn-primary" title="Back to Top"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 200
+        });
+        function toggleDescription() {
+            var description = document.querySelector('.project-description');
+            var button = document.getElementById('myBtn');
+            if (description.style.display === 'none') {
+                description.style.display = 'block';
+                button.textContent = 'Read Less';
+            } else {
+                description.style.display = 'none'; 
+                button.textContent = 'Read More';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Skills filter
+        const skillFilter = document.getElementById('skill-filter');
+        const skillItems = document.querySelectorAll('.skill-item');
+        skillFilter.addEventListener('input', () => {
+            const filterText = skillFilter.value.toLowerCase();
+            skillItems.forEach(item => {
+                const skillText = item.textContent.toLowerCase();
+                if (skillText.includes(filterText)) {
+                    item.style.display = 'inline-block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Typed effect for header tagline
+        new Typed('#typed-text', {
+            strings: ['Data Analyst', 'Software Engineer', 'Data Scientist'],
+            typeSpeed: 50,
+            backSpeed: 25,
+            loop: true,
+            loopCount: Infinity
+        });
+
+        // // Dark mode toggle
+        // const darkModeToggle = document.getElementById('dark-mode-toggle');
+        // darkModeToggle.addEventListener('click', () => {
+        //     document.documentElement.setAttribute('data-bs-theme', 
+        //         document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark'
+        //     );
+        //     updateColors();
+        // });
+
+        function updateColors() {
+            const isDarkMode = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+            document.documentElement.style.setProperty('--background-color', isDarkMode ? '#333333' : '#f8f9fa');
+            document.documentElement.style.setProperty('--text-color', isDarkMode ? '#f8f9fa' : '#333333');
+            document.documentElement.style.setProperty('--primary-color', isDarkMode ? '#3498db' : '#2980b9');
+            document.documentElement.style.setProperty('--secondary-color', isDarkMode ? '#2ecc71' : '#27ae60');
+        }
+
+        // Initial color update
+        updateColors();
+    </script>
